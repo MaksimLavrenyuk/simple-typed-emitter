@@ -2,7 +2,8 @@ import path from 'path';
 import babel from '@rollup/plugin-babel';
 import eslint from '@rollup/plugin-eslint';
 import cleaner from 'rollup-plugin-cleaner';
-import { terser } from 'rollup-plugin-terser'
+import { terser } from 'rollup-plugin-terser';
+import license from 'rollup-plugin-license';
 import ts from 'rollup-plugin-typescript2';
 import pkg from './package.json';
 
@@ -50,6 +51,14 @@ export default {
             babelHelpers: 'bundled',
         }),
         terser(),
+        isProduction ? license({
+            banner: {
+                content: {
+                    file: path.join(__dirname, 'LICENSE'),
+                    encoding: 'utf-8',
+                },
+            },
+        }) : {},
         isProduction ? cleaner({
             targets: [
                 './dist/'
