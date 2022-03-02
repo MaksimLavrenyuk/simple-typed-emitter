@@ -1,4 +1,5 @@
 import path from 'path';
+import eslint from '@rollup/plugin-eslint';
 import ts from 'rollup-plugin-typescript2';
 import pkg from './package.json';
 
@@ -34,6 +35,7 @@ export default {
         },
     ],
     plugins: [
+        eslint(),
         ts({
             tsconfigOverride: {
                 exclude: ["**/__tests__", "**/*.test.ts"]
