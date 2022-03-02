@@ -1,7 +1,3 @@
 /*! simple-typed-emitter 0.0.0 */
-'use strict';
-
-var index = 1;
-
-module.exports = index;
+"use strict";module.exports=1;
 //# sourceMappingURL=index.cjs.js.map

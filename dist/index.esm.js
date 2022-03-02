@@ -1,5 +1,3 @@
 /*! simple-typed-emitter 0.0.0 */
-var index = 1;
-
-export { index as default };
+var a=1;export{a as default};
 //# sourceMappingURL=index.esm.js.map

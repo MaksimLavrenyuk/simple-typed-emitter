@@ -1,6 +1,7 @@
 import path from 'path';
 import babel from '@rollup/plugin-babel';
 import eslint from '@rollup/plugin-eslint';
+import { terser } from 'rollup-plugin-terser'
 import ts from 'rollup-plugin-typescript2';
 import pkg from './package.json';
 
@@ -47,5 +48,6 @@ export default {
             include: ['src/**/*'],
             babelHelpers: 'bundled',
         }),
+        terser(),
     ],
 };
