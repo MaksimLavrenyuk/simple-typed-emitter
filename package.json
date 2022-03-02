@@ -4,7 +4,10 @@
   "description": "Simple, typed, event emitter",
   "main": "dist/index",
   "typings": "dist/index",
-  "scripts": {},
+  "scripts": {
+    "start": "NODE_ENV=dev yarn install --check-files && rollup -c -w --watch.skipWrite",
+    "build": "NODE_ENV=prod rollup -c"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MaksimLavrenyuk/simple-typed-emitter.git"
@@ -42,6 +45,9 @@
   },
   "homepage": "https://github.com/MaksimLavrenyuk/simple-typed-emitter#readme",
   "devDependencies": {
+    "@types/node": "^17.0.21",
     "rollup": "^2.68.0",
+    "rollup-plugin-typescript2": "^0.31.2",
+    "typescript": "^4.5.5"
   }
 }

@@ -1,5 +1,5 @@
 import path from 'path';
-import eslint from '@rollup/plugin-eslint';
+import ts from 'rollup-plugin-typescript2';
 import pkg from './package.json';
 
 const isProduction = process.env.NODE_ENV !== 'dev';
@@ -33,5 +33,11 @@ export default {
             banner,
         },
     ],
-    plugins: [],
+    plugins: [
+        ts({
+            tsconfigOverride: {
+                exclude: ["**/__tests__", "**/*.test.ts"]
+            }
+        }),
+    ],
 };
