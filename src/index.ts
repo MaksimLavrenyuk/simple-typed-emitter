@@ -1,2 +1,3 @@
-const index = 1;
-export default index;
+export default function foo() {
+    return 'foo';
+}
