@@ -41,5 +41,7 @@
     "url": "https://github.com/MaksimLavrenyuk/simple-typed-emitter/issues"
   },
   "homepage": "https://github.com/MaksimLavrenyuk/simple-typed-emitter#readme",
-  "devDependencies": {}
+  "devDependencies": {
+    "rollup": "^2.68.0",
+  }
 }
