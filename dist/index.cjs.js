@@ -23,5 +23,5 @@
  */
 
 /*! simple-typed-emitter 0.0.0 */
-"use strict";module.exports=1;
+"use strict";module.exports=function(){return"foo"};
 //# sourceMappingURL=index.cjs.js.map

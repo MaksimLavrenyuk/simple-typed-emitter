@@ -23,5 +23,5 @@
  */
 
 /*! simple-typed-emitter 0.0.0 */
-var a=1;export{a as default};
+function o(){return"foo"}export{o as default};
 //# sourceMappingURL=index.esm.js.map
