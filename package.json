@@ -1,0 +1,45 @@
+{
+  "name": "simple-typed-emitter",
+  "version": "0.0.0",
+  "description": "Simple, typed, event emitter",
+  "main": "dist/index",
+  "typings": "dist/index",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaksimLavrenyuk/simple-typed-emitter.git"
+  },
+  "keywords": [
+    "event",
+    "emitter",
+    "eventemitter",
+    "events",
+    "emit",
+    "on",
+    "once",
+    "off",
+    "listener",
+    "subscribe",
+    "unsubscribe",
+    "pubsub",
+    "tiny",
+    "addlistener",
+    "addeventlistener",
+    "dispatch",
+    "dispatcher",
+    "observer",
+    "trigger",
+    "await",
+    "promise",
+    "typescript",
+    "ts",
+    "typed"
+  ],
+  "author": "Maksim Lavrenyuk",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MaksimLavrenyuk/simple-typed-emitter/issues"
+  },
+  "homepage": "https://github.com/MaksimLavrenyuk/simple-typed-emitter#readme",
+  "devDependencies": {}
+}
