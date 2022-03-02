@@ -10,7 +10,8 @@
     "lint": "eslint src/**/* --fix",
     "test": "jest",
     "test:cov": "yarn test --coverage",
-    "test:watch": "yarn test --watch"
+    "test:watch": "yarn test --watch",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -66,7 +67,7 @@
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.31.2",
     "ts-jest": "^27.1.3",
-    "typescript": "4.5.5"
-  },
-  "dependencies": {}
+    "typescript": "4.5.5",
+    "husky": "^7.0.0"
+  }
 }
