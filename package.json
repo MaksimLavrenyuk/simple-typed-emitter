@@ -6,7 +6,10 @@
   "typings": "dist/index",
   "scripts": {
     "start": "NODE_ENV=dev yarn install --check-files && rollup -c -w --watch.skipWrite",
-    "build": "NODE_ENV=prod rollup -c"
+    "build": "NODE_ENV=prod rollup -c",
+    "test": "jest",
+    "test:cov": "yarn test --coverage",
+    "test:watch": "yarn test --watch"
   },
   "repository": {
     "type": "git",
@@ -48,17 +51,20 @@
     "@babel/core": "^7.17.5",
     "@rollup/plugin-babel": "^5.3.1",
     "@rollup/plugin-eslint": "^8.0.1",
+    "@types/jest": "^27.4.1",
     "@types/node": "^17.0.21",
     "@typescript-eslint/eslint-plugin": "^5.12.1",
     "@typescript-eslint/parser": "^5.12.1",
     "eslint": "^8.10.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.25.4",
+    "jest": "^27.5.1",
     "rollup": "^2.68.0",
     "rollup-plugin-cleaner": "^1.0.0",
     "rollup-plugin-license": "^2.6.1",
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.31.2",
+    "ts-jest": "^27.1.3",
     "typescript": "4.5.5"
   },
   "dependencies": {}
