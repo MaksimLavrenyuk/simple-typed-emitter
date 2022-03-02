@@ -1,3 +1,6 @@
-export default function foo() {
-    return 'foo';
-}
+import EventEmitter, { EventsMap } from './EventEmitter';
+
+export default EventEmitter;
+export type {
+    EventsMap,
+};
