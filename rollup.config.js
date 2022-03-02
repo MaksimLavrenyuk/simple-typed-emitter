@@ -1,6 +1,7 @@
 import path from 'path';
 import babel from '@rollup/plugin-babel';
 import eslint from '@rollup/plugin-eslint';
+import cleaner from 'rollup-plugin-cleaner';
 import { terser } from 'rollup-plugin-terser'
 import ts from 'rollup-plugin-typescript2';
 import pkg from './package.json';
@@ -49,5 +50,10 @@ export default {
             babelHelpers: 'bundled',
         }),
         terser(),
+        isProduction ? cleaner({
+            targets: [
+                './dist/'
+            ]
+        }) : {}
     ],
 };
