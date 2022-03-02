@@ -1,4 +1,5 @@
 import path from 'path';
+import babel from '@rollup/plugin-babel';
 import eslint from '@rollup/plugin-eslint';
 import ts from 'rollup-plugin-typescript2';
 import pkg from './package.json';
@@ -40,6 +41,11 @@ export default {
             tsconfigOverride: {
                 exclude: ["**/__tests__", "**/*.test.ts"]
             }
+        }),
+        babel({
+            extensions,
+            include: ['src/**/*'],
+            babelHelpers: 'bundled',
         }),
     ],
 };
