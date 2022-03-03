@@ -63,13 +63,15 @@ describe('Observer', () => {
 
         const mockListener = jest.fn(listener);
         const mockDummyListener = jest.fn(dummyListener);
+        const handle = eventEmitter.registerListener('change', mockListener);
 
-        expect(eventEmitter.registerListener('change', mockListener)).toEqual(dummyHandle);
+        expect(handle).toEqual(dummyHandle);
 
         eventEmitter.emit('change', 'test');
 
         expect(eventEmitter.deregisterListener('change', mockDummyListener)).toBeFalsy();
         expect(eventEmitter.deregisterListener('change', mockListener)).toBeTruthy();
+        expect(handle.deregister()).toBeFalsy();
 
         expect(mockListener).toHaveBeenCalled();
         expect(mockDummyListener).not.toHaveBeenCalled();
@@ -93,7 +95,8 @@ describe('Observer', () => {
 
         expect(handle).toEqual(testHandle);
 
-        handle.deregister();
+        expect(handle.deregister()).toBeTruthy();
+        expect(handle.deregister()).toBeFalsy();
         observable.emit('change', 'test');
         expect(mockListener).not.toHaveBeenCalled();
     });
