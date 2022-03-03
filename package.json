@@ -13,6 +13,8 @@
     "test": "jest",
     "test:cov": "yarn test --coverage",
     "test:watch": "yarn test --watch",
+    "preversion": "yarn build",
+    "postversion": "git push --follow-tags && yarn publish",
     "prepare": "husky install"
   },
   "repository": {
