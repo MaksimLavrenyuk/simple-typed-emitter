@@ -6,6 +6,10 @@ interface Listener<Payload> {
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export type EventsMap = Record<string, Listener<any>[]>;
 
+type HandleDeregister = {
+    deregister:() => boolean
+};
+
 export default class EventEmitter<Listeners extends EventsMap> {
     protected listeners: Listeners | null;
 
@@ -22,7 +26,12 @@ export default class EventEmitter<Listeners extends EventsMap> {
                 if (this.listeners[event][i] === listener) {
                     return {
                         deregister: () => {
-                            if (this.listeners) this.listeners[event].splice(i, 1);
+                            if (this.listeners) {
+                                this.listeners[event].splice(i, 1);
+                                return true;
+                            }
+
+                            return false;
                         },
                     };
                 }
@@ -32,7 +41,17 @@ export default class EventEmitter<Listeners extends EventsMap> {
         return undefined;
     }
 
-    public registerListener<Event extends keyof Listeners>(event: Event, listener: Listeners[Event][number]) {
+    /**
+     * Register an event listener.
+     * @param event
+     * @param listener
+     *
+     * @return HandleDeregister
+     */
+    public registerListener<Event extends keyof Listeners>(
+        event: Event,
+        listener: Listeners[Event][number],
+    ): HandleDeregister {
         if (this.listeners !== null) {
             if (this.listeners[event]) {
                 this.listeners[event].push(listener);
@@ -54,14 +73,23 @@ export default class EventEmitter<Listeners extends EventsMap> {
                     for (let i = 0; i < this.listeners[event].length; i++) {
                         if (this.listeners[event][i] === listener) {
                             this.listeners[event].splice(i, 1);
-                            break;
+                            return true;
                         }
                     }
                 }
+
+                return false;
             },
         };
     }
 
+    /**
+     * Remove the listener from the registered.
+     * @param event
+     * @param listener
+     *
+     * @return boolean - Flag of Successful Cancellation.
+     */
     public deregisterListener<Event extends keyof Listeners>(
         event: Event,
         listener: Listeners[Event][number],
@@ -69,12 +97,16 @@ export default class EventEmitter<Listeners extends EventsMap> {
         const handle = this.getListenerHandle(event, listener);
 
         if (handle) {
-            handle.deregister();
-            return true;
+            return handle.deregister();
         }
         return false;
     }
 
+    /**
+     * To emit an event.
+     * @param event
+     * @param payload - Together with the event it is possible to transfer the payload.
+     */
     public emit<Event extends keyof Listeners>(
         event: Event,
         payload?: Parameters<Listeners[Event][number]>[number],
