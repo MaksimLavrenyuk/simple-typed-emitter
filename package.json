@@ -2,8 +2,10 @@
   "name": "simple-typed-emitter",
   "version": "0.0.0",
   "description": "Simple, typed, event emitter",
-  "main": "dist/index",
-  "typings": "dist/index",
+  "typings": "dist/index.d.ts",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "browser": "dist/index.umd.js",
   "scripts": {
     "start": "NODE_ENV=dev yarn install --check-files && rollup -c -w --watch.skipWrite",
     "build": "NODE_ENV=prod rollup -c",
