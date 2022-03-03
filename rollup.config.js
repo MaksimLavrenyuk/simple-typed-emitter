@@ -19,20 +19,20 @@ export default {
     output: [
         {
             name: 'EventEmitter',
-            file: `${pkg.main}.umd.js`,
+            file: pkg.browser,
             format: 'umd',
             sourcemap: true,
             banner,
         },
         {
-            file: `${pkg.main}.cjs.js`,
+            file: pkg.main,
             format: 'cjs',
             exports: 'auto',
             sourcemap: true,
             banner,
         },
         {
-            file: `${pkg.main}.esm.js`,
+            file: pkg.module,
             format: 'esm',
             sourcemap: true,
             banner,
