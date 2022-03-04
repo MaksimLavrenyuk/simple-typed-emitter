@@ -12,7 +12,9 @@
     "lint": "eslint src/**/* --fix",
     "test": "jest",
     "test:cov": "yarn test --coverage",
-    "test:watch": "yarn test --watch"
+    "test:watch": "yarn test --watch",
+    "preversion": "yarn build",
+    "postversion": "git push --follow-tags"
   },
   "repository": {
     "type": "git",
