@@ -12,8 +12,7 @@
     "lint": "eslint src/**/* --fix",
     "test": "jest",
     "test:cov": "yarn test --coverage",
-    "test:watch": "yarn test --watch",
-    "prepare": "husky install"
+    "test:watch": "yarn test --watch"
   },
   "repository": {
     "type": "git",
@@ -51,6 +50,11 @@
     "url": "https://github.com/MaksimLavrenyuk/simple-typed-emitter/issues"
   },
   "homepage": "https://github.com/MaksimLavrenyuk/simple-typed-emitter#readme",
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint && yarn test"
+    }
+  },
   "devDependencies": {
     "@babel/core": "^7.17.5",
     "@rollup/plugin-babel": "^5.3.1",
@@ -62,6 +66,7 @@
     "eslint": "^8.10.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.25.4",
+    "husky": "4.3.8",
     "jest": "^27.5.1",
     "rollup": "^2.68.0",
     "rollup-plugin-cleaner": "^1.0.0",
@@ -69,7 +74,6 @@
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.31.2",
     "ts-jest": "^27.1.3",
-    "typescript": "4.5.5",
-    "husky": "^7.0.0"
+    "typescript": "4.5.5"
   }
 }
